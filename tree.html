@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Tree</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="css/style.css" rel="stylesheet">
+	</head>
+	<body style="padding: 23px">
+		<p style="font-weight:bold;font-size:2em;">Merry Christmas Barney!</p>
+	<p>I wrote the program to render the tree in <a href="https://processing.org">processing</a>,<br>
+	a language for programmatic design.</p>
+	<p>Run this code to see it animated:</p>
+
+	<div style="display:flex;background-color: #2C2C3C;">
+	<pre id="linenumbers" style="text-align:right;color:#BABABA"></pre>
+	<pre id="code">void setup() {
+  size(1024, 1024, P3D);
+}
+
+// Change these values to change tree
+int treesides = 120;
+int treeradius = 250;
+int treeheight = 750;
+int barksides = 6;
+int barkradius = 75;
+int barkheight = 175;
+
+int n = 0;
+void draw() {
+  background(0);
+  translate(width/2, height * 3/4, 0);
+  rotateX(sin(n * PI/360) * PI/8);
+  rotateY(n * PI/360);
+  n++;
+  drawTree();
+}
+
+void drawTree() {
+  strokeWeight(2);
+  noFill();
+ 
+  // Draw leaves
+  stroke(#47ea45);
+  beginShape(TRIANGLES);
+  float leavesangle = TWO_PI / treesides;
+  for (int i = 0; i < treesides; i++) {
+    vertex(treeradius * sin(i * leavesangle), 0, treeradius * cos(i * leavesangle));
+    vertex(treeradius * sin((i + 1) * leavesangle), 0, treeradius * cos((i + 1) * leavesangle));
+    vertex(0, -treeheight, 0);
+  }
+  endShape();
+ 
+  // Draw trunk
+  stroke(#6d4620);
+  beginShape(TRIANGLES);
+  float barkangle = TWO_PI / barksides;
+  for (int i = 0; i < barksides; i++) {
+    vertex(barkradius * sin(i * barkangle), 0, barkradius * cos(i * barkangle));
+    vertex(barkradius * sin((i + 1) * barkangle), 0, barkradius * cos((i + 1) * barkangle));
+    vertex(barkradius * sin(i * barkangle), barkheight, barkradius * cos(i * barkangle));
+   
+    vertex(barkradius * sin(i * barkangle), barkheight, barkradius * cos(i * barkangle));
+    vertex(barkradius * sin((i + 1) * barkangle), 0, barkradius * cos((i + 1) * barkangle));
+    vertex(barkradius * sin((i + 1) * barkangle), barkheight, barkradius * cos((i + 1) * barkangle));
+  }
+  endShape();
+}
+
+void mousePressed() {
+  save("wireframetree.png");
+}</pre>
+
+	<script>
+		for (let i = 0; i < document.getElementById('code').innerHTML.split(/\r\n|\r|\n/).length; i++) {
+			document.getElementById('linenumbers').innerHTML += ' ' + i.toString() + ' \n';
+		}
+	</script>
+	</div>
+	</body>
+</html>
