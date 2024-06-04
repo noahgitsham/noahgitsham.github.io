@@ -1,50 +1,117 @@
-html, body {
-	background-color: #525443;
-	font-family: monospace;
-	font-size: 15px;
-	color: white;
-	height: 100%;
-	padding: 0; margin: 0;
+/* Variables */
+:root {
+  --bg_h: #1d2021;
+  --bg:   #282828;
+  --bg_s: #32302f;
+  --bg1:  #3c3836;
+  --bg2:  #504945;
+  --bg3:  #665c54;
+  --bg4:  #7c6f64;
+
+  --fg:  #fbf1c7;
+  --fg1: #ebdbb2;
+  --fg2: #d5c4a1;
+  --fg3: #bdae93;
+  --fg4: #a89984;
+
+  --red:    #fb4934;
+  --green:  #b8bb26;
+  --yellow: #fabd2f;
+  --blue:   #83a598;
+  --purple: #d3869b;
+  --aqua:   #8ec07c;
+  --gray:   #928374;
+  --orange: #fe8019;
+
+  --red-dim:    #cc2412;
+  --green-dim:  #98971a;
+  --yellow-dim: #d79921;
+  --blue-dim:   #458588;
+  --purple-dim: #b16286;
+  --aqua-dim:   #689d6a;
+  --gray-dim:   #a89984;
+  --orange-dim: #d65d0e;
 }
 
-a:link { color: cyan }
-a:visited { color: orange }
+@font-face {
+    font-family: "Hack"; /*a name to be used later*/
+    src: url("ttf/Hack-Regular.ttf"); /*URL to font*/
+	font-weight: normal;
+}
+@font-face {
+    font-family: "Hack"; /*a name to be used later*/
+    src: url("ttf/Hack-Bold.ttf"); /*URL to font*/
+	font-weight: bold;
+}
+@font-face {
+    font-family: "Hack"; /*a name to be used later*/
+    src: url("ttf/Hack-Italic.ttf"); /*URL to font*/
+	font-style: italic;
+}
+@font-face {
+    font-family: "Hack"; /*a name to be used later*/
+    src: url("ttf/Hack-BoldItalic.ttf"); /*URL to font*/
+	font-weight: bold;
+	font-style: italic;
+}
 
-#wrapper {
-	height: 100%;
+
+a:link { color: var(--aqua) }
+a:visited { color: var(--aqua) }
+a:hover { color: var(--aqua-dim) }
+
+ul {
+	list-style: none;
+	display: inline;
+}
+p + ul {
+	margin: 9;
+}
+li:before { content: "- " }
+
+html, body { height: 100% }
+
+body {
+	font-family: Hack;
+	font-size: 1.1em;
+	color: var(--fg);
+
+	padding: 0; margin: 0;
+	background-color: var(--bg);
+	background-size: 30px 30px;
+	background-image:
+		linear-gradient(to right, var(--bg2) 1px, transparent 1px),
+		linear-gradient(to bottom, var(--bg2) 1px, transparent 1px);
+	background-position: center;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	--d: 1px;
-	background : radial-gradient(
-	var(--d) 
-	var(--d), 
-
-	#000 calc(var(--d) - 1px), 
-	#0000 var(--d)
-	) 
-	0 0 / 50px 50px;
 }
 
 #content {
-	background-color: #754C51;
-	width: 300px;
-	height: 300px;
-	padding: 10px;
+	background-color: var(--bg_h);
+	width: 26em; height: 26em;
+	padding: 1em;
+	margin: 10px;
 }
 
 #bar {
-	height: 20px;
-	line-height: 20px;
-	background-color: #653C41;
-	margin-bottom: 10px;
+	background-color: var(--bg_s);
+	height: 2em;
 	display: flex;
+
+}
+
+#barcontent {
+	font-size: 1.5em;
+	text-align: center;
+	flex-grow: 1;
+	font-weight: bold;
+	align-self: center;
 }
 
 #box {
-	width: 5px;
-	height: 20px;
-	left: 0;
-	background: white;
-	margin-right: 5px;
+	width: 2em;
+	background: var(--bg2);
 }
