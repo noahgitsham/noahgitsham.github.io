@@ -1,18 +1,18 @@
 /* Variables */
 :root {
   --bg_h: #1d2021;
-  --bg:   #282828;
+  --bg_n: #282828;
   --bg_s: #32302f;
   --bg1:  #3c3836;
   --bg2:  #504945;
   --bg3:  #665c54;
   --bg4:  #7c6f64;
 
-  --fg:  #fbf1c7;
-  --fg1: #ebdbb2;
-  --fg2: #d5c4a1;
-  --fg3: #bdae93;
-  --fg4: #a89984;
+  --fg_n: #fbf1c7;
+  --fg1:  #ebdbb2;
+  --fg2:  #d5c4a1;
+  --fg3:  #bdae93;
+  --fg4:  #a89984;
 
   --red:    #fb4934;
   --green:  #b8bb26;
@@ -31,6 +31,8 @@
   --aqua-dim:   #689d6a;
   --gray-dim:   #a89984;
   --orange-dim: #d65d0e;
+
+  --link-color: var(--aqua);
 }
 
 @font-face {
@@ -56,29 +58,33 @@
 }
 
 
-a:link { color: var(--aqua) }
-a:visited { color: var(--aqua) }
-a:hover { color: var(--aqua-dim) }
+a:link {
+	color: var(--link-color); text-decoration: none;
+	transition-property: color, background-color;
+	transition-duration: 0.3s;
+}
+a:visited { color: var(--link-color) }
+a:hover { color: var(--bg); background-color: var(--link-color); }
 
+p { margin: 0 }
 ul {
 	list-style: none;
 	display: inline;
-}
-p + ul {
-	margin: 9;
 }
 li:before { content: "- " }
 
 html, body { height: 100% }
 
 body {
+	--bg: var(--bg_n);
+	--fg: var(--fg_n);
 	font-family: Hack;
 	font-size: 1.1em;
 	color: var(--fg);
 
 	padding: 0; margin: 0;
 	background-color: var(--bg);
-	background-size: 30px 30px;
+	background-size: 2em 2em;
 	background-image:
 		linear-gradient(to right, var(--bg2) 1px, transparent 1px),
 		linear-gradient(to bottom, var(--bg2) 1px, transparent 1px);
@@ -89,22 +95,21 @@ body {
 	align-items: center;
 }
 
-#content {
-	background-color: var(--bg_h);
+#page {
+	--bg: var(--bg_h);
+	background-color: var(--bg);
 	width: 26em; height: 26em;
-	padding: 1em;
 	margin: 10px;
 }
 
 #bar {
-	background-color: var(--bg_s);
-	height: 2em;
+	--bg: var(--bg_s);
+	background-color: var(--bg);
 	display: flex;
-
 }
 
 #barcontent {
-	font-size: 1.5em;
+	font-size: 1.68em;
 	text-align: center;
 	flex-grow: 1;
 	font-weight: bold;
@@ -112,6 +117,11 @@ body {
 }
 
 #box {
-	width: 2em;
+	aspect-ratio: 1 / 1;
+	height: 2em;
 	background: var(--bg2);
+}
+
+#content {
+	padding: 1em;
 }
