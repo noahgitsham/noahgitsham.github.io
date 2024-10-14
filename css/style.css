@@ -34,27 +34,14 @@
 
   --link-color: var(--aqua);
 }
+}
 
 @font-face {
-    font-family: "Hack"; /*a name to be used later*/
-    src: url("ttf/Hack-Regular.ttf"); /*URL to font*/
-	font-weight: normal;
-}
-@font-face {
-    font-family: "Hack"; /*a name to be used later*/
-    src: url("ttf/Hack-Bold.ttf"); /*URL to font*/
-	font-weight: bold;
-}
-@font-face {
-    font-family: "Hack"; /*a name to be used later*/
-    src: url("ttf/Hack-Italic.ttf"); /*URL to font*/
-	font-style: italic;
-}
-@font-face {
-    font-family: "Hack"; /*a name to be used later*/
-    src: url("ttf/Hack-BoldItalic.ttf"); /*URL to font*/
-	font-weight: bold;
-	font-style: italic;
+	font-family: "Hack"; 
+	src: url("fonts/Hack/Hack-Regular.ttf") font-weight-normal; 
+	src: url("fonts/Hack/Hack-Bold.ttf") font-weight-bold; 
+	src: url("fonts/Hack/Hack-Italic.ttf") font-italic;  
+	src: url("fonts/Hack/Hack-BoldItalic.ttf") font-weight-bold font-italic; 
 }
 
 
