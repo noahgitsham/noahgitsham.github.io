@@ -80,13 +80,11 @@
 	src: url("./fonts/FragmentMono/FragmentMono-Italic.ttf") font-italic;  
 }
 
-* {
-	transition-property: color, background, background-color;
-	transition-duration: 0.3s;
-}
 
 a:link {
 	color: var(--link-color); text-decoration: none;
+	transition-property: color, background-color;
+	transition-duration: 0.3s;
 }
 a:visited { color: var(--link-color) }
 a:hover { color: var(--bg); background-color: var(--link-color); }
@@ -103,7 +101,7 @@ html, body { height: 100% }
 body {
 	--bg: var(--bg_n);
 	--fg: var(--fg_n);
-	font-family: Hack, monospace;
+	font-family: Hack;
 	font-size: 1.1em;
 	color: var(--fg);
 
@@ -138,7 +136,6 @@ body {
 	text-align: center;
 	flex-grow: 1;
 	/*font-weight: bold;*/
-	text-transform: uppercase;
 	align-self: center;
 }
 
