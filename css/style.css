@@ -86,10 +86,15 @@
 }
 
 a:link {
-	color: var(--link-color); text-decoration: none;
+	--fg: var(--link-color);
+	color: var(--fg);
+	text-decoration: none;
 }
 a:visited { color: var(--link-color) }
-a:hover { color: var(--bg); background-color: var(--link-color); }
+a:hover {
+	color: var(--bg);
+	background-color: var(--fg);
+}
 
 p { margin: 0 }
 ul {
@@ -99,6 +104,11 @@ ul {
 li:before { content: "- " }
 
 html, body { height: 100% }
+
+::selection {
+	color: var(--bg);
+	background: var(--fg);
+}
 
 body {
 	--bg: var(--bg_n);
