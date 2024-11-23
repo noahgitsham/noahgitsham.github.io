@@ -94,6 +94,7 @@ a:visited { color: var(--link-color) }
 a:hover {
 	color: var(--bg);
 	background-color: var(--fg);
+	cursor: cell;
 }
 
 p { margin: 0 }
