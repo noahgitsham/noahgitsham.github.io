@@ -66,6 +66,10 @@
 	}
 }
 
+:root {
+	--grid-size: 4ch;
+}
+
 @font-face {
 	font-family: "Hack"; 
 	src: url("./fonts/Hack/Hack-Regular.ttf") font-weight-normal; 
@@ -93,8 +97,12 @@ a:link {
 a:visited { color: var(--link-color) }
 a:hover {
 	color: var(--bg);
-	background-color: var(--fg);
+	background: var(--fg);
 	cursor: cell;
+}
+a:hover::selection {
+	color: var(--fg);
+	background: var(--bg);
 }
 
 p { margin: 0 }
@@ -115,12 +123,11 @@ body {
 	--bg: var(--bg_n);
 	--fg: var(--fg_n);
 	font-family: Hack, monospace;
-	font-size: 1.1em;
 	color: var(--fg);
 
 	padding: 0; margin: 0;
 	background-color: var(--bg);
-	background-size: 2em 2em;
+	background-size: var(--grid-size) var(--grid-size);
 	background-image:
 		linear-gradient(to right, var(--bg2) 1px, transparent 1px),
 		linear-gradient(to bottom, var(--bg2) 1px, transparent 1px);
@@ -134,31 +141,30 @@ body {
 #page {
 	--bg: var(--bg_h);
 	background-color: var(--bg);
-	width: 26em; height: 26em;
-	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	height: calc(min(60ch, round(down, 100%, 2*var(--grid-size)) - var(--grid-size)));
+	max-width: calc(min(60ch, round(down, 100%, 2*var(--grid-size)) - var(--grid-size)));
 }
 
 #bar {
 	--bg: var(--bg_s);
-	background-color: var(--bg);
+	background-color: var(--bg2);
 	display: flex;
+	font-size: 2em;
 }
 
 #barcontent {
-	font-size: 1.68em;
 	text-align: center;
 	flex-grow: 1;
 	/*font-weight: bold;*/
 	text-transform: uppercase;
 	align-self: center;
-}
-
-#box {
-	aspect-ratio: 1 / 1;
-	height: 2em;
-	background: var(--bg2);
+	background-color: var(--bg);
+	margin: 0 2ch;
 }
 
 #content {
-	padding: 1em;
+	padding: 2ch;
+	overflow-y: auto;
 }
