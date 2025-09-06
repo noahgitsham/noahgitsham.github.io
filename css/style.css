@@ -143,8 +143,8 @@ body {
 	background-color: var(--bg);
 	display: flex;
 	flex-direction: column;
-	height: calc(min(60ch, round(down, 100%, 2*var(--grid-size)) - var(--grid-size)));
-	max-width: calc(min(60ch, round(down, 100%, 2*var(--grid-size)) - var(--grid-size)));
+	height: calc(min(15*var(--grid-size), round(down, 100%, 2*var(--grid-size)) - var(--grid-size)));
+	max-width: calc(min(15*var(--grid-size), round(down, 100%, 2*var(--grid-size)) - var(--grid-size)));
 }
 
 #bar {
@@ -161,10 +161,10 @@ body {
 	text-transform: uppercase;
 	align-self: center;
 	background-color: var(--bg);
-	margin: 0 2ch;
+	margin: 0 calc(var(--grid-size)/ 2);
 }
 
 #content {
-	padding: 2ch;
+	padding: calc(var(--grid-size)/ 2);
 	overflow-y: auto;
 }
